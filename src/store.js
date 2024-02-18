@@ -155,6 +155,11 @@ export default createStore({
             phone: state.form.phoneNumber
           }
           await updateDoc(docRefToUpdate, dataObj);
+
+          commit('setSnackbar', {
+            message: 'Данные успешно перезаписаны', 
+            color: 'success'
+          })
              
           console.log('Объект обновлен успешно')
 

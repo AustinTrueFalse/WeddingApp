@@ -12,7 +12,11 @@ export default {
         },
         getUserQuery() {
             return this.$store.getters.userQuery
+        },
+        getForm() {
+            return this.$store.getters.form
         }
+
     },
     methods: {
         hideModal() {
@@ -21,9 +25,7 @@ export default {
         changeUpdateAgree(q) {
             this.$store.dispatch('updateInfo');
         },
-        getForm() {
-            return this.$store.getters.form
-        }
+        
     },
 }
 </script>
