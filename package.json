@@ -1,0 +1,23 @@
+{
+  "name": "weddingapp",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "firebase": "^10.8.0",
+    "vue": "^3.4.15",
+    "vue-router": "^4.2.5",
+    "vuetify": "^3.5.4",
+    "vuex": "^4.0.2"
+  },
+  "devDependencies": {
+    "@mdi/font": "^7.4.47",
+    "@vitejs/plugin-vue": "^5.0.3",
+    "vite": "^5.0.11"
+  }
+}
