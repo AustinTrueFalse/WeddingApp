@@ -1,3 +1,9 @@
+/*
+[] Добавить processcycle на отправку и на апдейт
+[] На апдейте заменить snackbar на что-нибудь другое
+[] Долго отправляется?
+*/
+
 import { createStore } from 'vuex' 
 import db from '../src/firebase/init.js'
 import { where, query, collection, addDoc, getDocs, updateDoc  } from 'firebase/firestore'
@@ -10,6 +16,7 @@ export default createStore({
         phoneNumber: '',
         selected: [],
         radios: '',
+        isPostingInfo: false,
       },
     // Modals
       dialogVisible: false,
@@ -37,6 +44,9 @@ export default createStore({
           selected: [],
           radios: '',
         };
+      },
+      setPostingInfo(state, value) {
+        state.isPostingInfo = value;
       },
     // Modals
       showModal(state) {
@@ -80,6 +90,8 @@ export default createStore({
         
         if(isValid) {
 
+            commit('setPostingInfo', true);
+
             switch (state.form.radios) {
                 case '1':
                   commit('setModalMessage', 'Будем вас ждать!')
@@ -97,6 +109,8 @@ export default createStore({
                 const querySnap = await getDocs(q)
                     
                 if(!querySnap.empty) {
+
+                  commit('setPostingInfo', false);
              
                   commit('showUpdateModal')
       
@@ -115,7 +129,7 @@ export default createStore({
                 const docRec = await addDoc(colRef, dataObj)
       
                 commit('showModal')
-                
+                commit('setPostingInfo', false);
                 
                 console.log('Document was created', docRec)
                 
@@ -126,7 +140,7 @@ export default createStore({
                   message: 'Ошибка загрузки данных, попробуйте позже', 
                   color: 'error'
                 })
-      
+                commit('setPostingInfo', false);
                 console.error('Ошибка загрузки данных:', error.message)
               }  
 
@@ -146,6 +160,7 @@ export default createStore({
        
         try {
 
+          commit('setPostingInfo', true);
           const docRefToUpdate = state.userQuery.docs[0].ref
           
           const dataObj = {
@@ -162,6 +177,7 @@ export default createStore({
           })
              
           console.log('Объект обновлен успешно')
+          commit('setPostingInfo', false);
 
         } catch (error) {
             
@@ -169,6 +185,7 @@ export default createStore({
             message: 'Ошибка загрузки данных, попробуйте позже', 
             color: 'error'
           })
+          commit('setPostingInfo', false);
           console.error('Ошибка при обновлении', error)
         }
       },

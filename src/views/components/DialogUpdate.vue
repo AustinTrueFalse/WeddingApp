@@ -46,10 +46,15 @@ export default {
         </v-card-text>
         <v-card-text>Перезаписать выбор по предпочннениями?</v-card-text>
         <v-card-actions>
-            <v-btn @click="changeUpdateAgree(getUserQuery)">Перезаписать</v-btn>
+            <v-btn @click="changeUpdateAgree(getUserQuery)"
+            :loading="$store.state.isPostingInfo"
+            >Перезаписать</v-btn>
         </v-card-actions>
         <v-card-actions>
-            <v-btn @click="hideModal()">Close</v-btn>
+            <v-btn 
+                @click="hideModal()"
+                
+            >Close</v-btn>
         </v-card-actions>
         </v-card>
     </v-dialog>

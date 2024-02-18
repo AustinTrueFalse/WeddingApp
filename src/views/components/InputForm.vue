@@ -139,14 +139,20 @@
                         value="Виски"
                       ></v-checkbox>           
               <v-btn 
+               
                 @click="postInfo()"
                 variant="outlined"
                 type="submit" 
                 rounded="xl"
                 block
                 class="my__button mt-4"
-                >Отправить</v-btn>
-
+                :loading="$store.state.isPostingInfo"
+                >Отправить
+              
+              
+              </v-btn>
+                   
+              
               </v-sheet>              
           </v-col>          
         </v-row>        
