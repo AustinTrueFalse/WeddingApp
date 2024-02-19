@@ -1,11 +1,12 @@
 <script>
 
   import InputForm from './components/InputForm.vue'
-
+  import YandexMap from './components/YandexMap.vue'
 
   export default {
     components: {
-      InputForm
+      InputForm,
+      YandexMap
     },
   }
 
@@ -13,7 +14,14 @@
 
 <template>
 
+
+        
       <v-container>
+        <v-card
+          rounded="xl"
+        >
+          <YandexMap />
+        </v-card>
         
         <InputForm />
                  

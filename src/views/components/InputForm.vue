@@ -75,7 +75,8 @@
         <DialogSubmit />
         <DialogUpdate />  
         <Snackbar />
-             
+
+
         <v-row justify="center" align="center"> 
           <v-col cols="2" md="1">
             <v-card class="custom-card">
@@ -84,7 +85,7 @@
               </v-card-text>
             </v-card>              
           </v-col>
-          <v-col cols="10" md="9">           
+          <v-col cols="10" md="5">           
               <v-sheet class="mx-auto">
                 <v-form @submit.prevent>
                   <v-text-field
