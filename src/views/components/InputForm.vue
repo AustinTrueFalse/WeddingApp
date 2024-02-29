@@ -62,7 +62,22 @@
         this.form.phoneNumber = this.form.phoneNumber.replace(/\D/g, '');
         this.form.phoneNumber = this.form.phoneNumber.replace(/(\d{1,1})(\d{1,3})(\d{1,3})(\d{1,2})(\d{1,2})/, '+$1-$2-$3-$4-$5');
       },   
-      
+      // test(arr, target) {
+        
+      //   const finalArr = []
+
+      //   for(let i=0; i<=arr.length; i++) {
+      //     for(let j=0; j<=arr.length; j++) {
+      //       console.log(arr[i] + arr[j])
+      //       arr[i] + arr[j] == target  ? finalArr.push(i, j) : console.log('дальше')
+      //     }
+      //   }
+
+      //   console.log(Array.from(new Set(finalArr)))
+      //   // return Array.from(new Set(finalArr))
+
+        
+      // }
     }
   }
 
@@ -141,7 +156,7 @@
                       ></v-checkbox>           
               <v-btn 
                
-                @click="postInfo()"
+                @click="test([2, 2, 3], 4)"
                 variant="outlined"
                 type="submit" 
                 rounded="xl"
@@ -168,15 +183,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Kanit:wght@400;600&family=Montserrat:wght@100;300;400&display=swap');
 
 
-.custom-card {
-  height: 750px; /* Задайте желаемую высоту карты */
-  overflow: hidden; /* Обрезает текст, который может выйти за пределы карты */
-}
 
-.rotated-text {
-  transform: rotate(90deg); /* Поворот текста на 89 градусов */
-  white-space: nowrap; /* Предотвращает перенос текста */
-  
-}
+
+
 
 </style>
