@@ -3,49 +3,49 @@
     <v-container class="pa-0" >
 
         <v-row justify="space-between" align="center"
-            class="background_color" style="min-height: 400px;">  
+            class="background-color">  
             <v-col
                 class="montserrat_font first-row pl-10"
-                cols="9"
+                cols="10"
             >
                 <v-row justify="space-between"> 
                     <v-col
                         cols="2"
-                        class="orlando_font"
+                        class="timing-font"
                     >
-                        <v-sheet class="background_color white-text adaptive-font">
+                        <v-sheet class="background-color white-text adaptive-font pt-10">
                             15:00
                         </v-sheet>
-                        <v-sheet class="pt-10 background_color white-text adaptive-font">
+                        <v-sheet class=" background-color white-text adaptive-font pt-10">
                             16:30
                         </v-sheet>
-                        <v-sheet class="pt-10 background_color white-text adaptive-font">
+                        <v-sheet class=" background-color white-text adaptive-font pt-10">
                             17:00
                         </v-sheet>
-                        <v-sheet class="pt-10 background_color white-text adaptive-font">
+                        <v-sheet class=" background-color white-text adaptive-font pt-10">
                             18:00
                         </v-sheet>
-                        <v-sheet class="pt-10 background_color white-text adaptive-font">
+                        <v-sheet class=" background-color white-text adaptive-font pt-10">
                             23:00
                         </v-sheet>
                     </v-col> 
                     <v-col
                         cols="10"
-                        class="montserrat_font"
+                        class="header-font"
                     >
-                        <v-sheet class="background_color white-text adaptive-font">
+                        <v-sheet class="background-color white-text adaptive-font pt-10">
                             ТРАНСФЕР
                         </v-sheet>
-                        <v-sheet class="pt-10 background_color white-text adaptive-font">
+                        <v-sheet class=" background-color white-text adaptive-font pt-10">
                             WELCOME
                         </v-sheet>
-                        <v-sheet class="pt-10 background_color white-text adaptive-font">
+                        <v-sheet class=" background-color white-text adaptive-font pt-10">
                             ЦЕРЕМОНИЯ
                         </v-sheet>
-                        <v-sheet class="pt-10 background_color white-text adaptive-font">
+                        <v-sheet class=" background-color white-text adaptive-font pt-10">
                             УЖИН И ВЕЧЕРИНКА
                         </v-sheet>
-                        <v-sheet class="pt-10 background_color white-text adaptive-font">
+                        <v-sheet class=" background-color white-text adaptive-font pt-10">
                             ЗАВЕРШЕНИЕ ВЕЧЕРА
                         </v-sheet>
                     </v-col>           
@@ -53,9 +53,11 @@
 
             </v-col>
 
-            <v-col cols="3">
-                <v-card class="custom-card background_color pa-0">
-                    <v-card-text class="orlando_font rotated-text white-text">
+            <v-col cols="2">
+                <v-card 
+                    elevation="0"
+                    class="custom-card background-color pa-0">
+                    <v-card-text class="header-font-orlando rotated-text white-text decriase-font">
                         TIMING
                     </v-card-text>
                 </v-card>  
@@ -69,77 +71,7 @@
 
 <script>
 
+import '../../../assets/main.css'
 
-export default {
-  components: {
-    
-  },
-};
 </script>
 
-<style scoped>
-
-
-
-
-
-@font-face {
-    font-family: 'Orlando';
-    src: url('../../../assets/fonts/OrlandoCapsCG.otf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
-
-.background_color {
-    background-color: #0a0a0a;
-}
-
-.white-text {
-  color: #ffffff !important;
-}
-.text-center {
-  text-align: center !important;
-}
-
-.orlando_font {
-    font-family: 'Orlando', sans-serif;
-    font-size: 0.9em;
-    
-}
-
-.montserrat_font {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 0.9em;
-    line-height: 1.1;
-}
-
-
-.margin_between_rows {
-    margin-bottom: -5px
-}
-
-
-.custom-card {
-    height: 400px;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.rotated-text {
-    font-size: 80px !important;
-    transform: rotate(-90deg);
-}
-
-@media screen and (min-width: 768px) {
-  .adaptive-font {
-    font-size: 1.5em;
-  }
-}
-
-
-
-
-
-</style>

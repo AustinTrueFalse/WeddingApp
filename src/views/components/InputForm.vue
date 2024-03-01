@@ -62,29 +62,12 @@
         this.form.phoneNumber = this.form.phoneNumber.replace(/\D/g, '');
         this.form.phoneNumber = this.form.phoneNumber.replace(/(\d{1,1})(\d{1,3})(\d{1,3})(\d{1,2})(\d{1,2})/, '+$1-$2-$3-$4-$5');
       },   
-      // test(arr, target) {
-        
-      //   const finalArr = []
-
-      //   for(let i=0; i<=arr.length; i++) {
-      //     for(let j=0; j<=arr.length; j++) {
-      //       console.log(arr[i] + arr[j])
-      //       arr[i] + arr[j] == target  ? finalArr.push(i, j) : console.log('дальше')
-      //     }
-      //   }
-
-      //   console.log(Array.from(new Set(finalArr)))
-      //   // return Array.from(new Set(finalArr))
-
-        
-      // }
     }
   }
 
 </script>
 
 <template>
-
       <v-container>
         
         <DialogSubmit />
@@ -92,18 +75,11 @@
         <Snackbar />
 
 
-        <v-row justify="center" align="center"> 
-          <v-col cols="2" md="1">
-            <v-card class="custom-card">
-              <v-card-text class="rotated-text">
-                Ваш текст здесь
-              </v-card-text>
-            </v-card>              
-          </v-col>
-          <v-col cols="10" md="5">           
-              <v-sheet class="mx-auto">
+        <v-row class="ml-2 mr-2 mb-2" >        
+              <v-sheet class="mx-auto header-font">
                 <v-form @submit.prevent>
                   <v-text-field
+                    
                     v-model="form.firstName"
                     :rules="rules"
                     label="Фамилия Имя"
@@ -117,24 +93,48 @@
                     @input="formatPhoneNumber"
                   ></v-text-field>
                 </v-form>
-                  <p class="pt-5">Сможете ли вы прийти?</p>
+                  <p class="header-font pt-5">Сможете ли вы прийти?</p>
                       <v-radio-group v-model="form.radios">
                       <v-radio label="Смогу / сможем присутствовать" value="1"></v-radio>
                       <v-radio label="Затрудняюсь ответить, сообщу позже" value="2"></v-radio>
                       <v-radio label="Не смогу прийти" value="3"></v-radio>
                       </v-radio-group>
-                  <p>Предпочтения по напиткам</p> 
+                  <p class="header-font">Предпочтения по напиткам</p> 
                       <v-checkbox
                         v-model="form.selected"
                         hide-details class="shrink mr-0 mt-0"
-                        label="Шампанское"
-                        value="Шампанское"
+                        label="Игристое сухое"
+                        value="Игристое сухое"
                         ></v-checkbox>
                       <v-checkbox
                         v-model="form.selected"
                         hide-details class="shrink mr-0 mt-0"
-                        label="Белое вино"
-                        value="Белое вино"
+                        label="Игристое полусладкое"
+                        value="Игристое полусладкое"
+                      ></v-checkbox>
+                      <v-checkbox
+                        v-model="form.selected"
+                        hide-details class="shrink mr-0 mt-0"
+                        label="Белое вино сухое"
+                        value="Белое вино сухое"
+                      ></v-checkbox>
+                      <v-checkbox
+                        v-model="form.selected"
+                        hide-details class="shrink mr-0 mt-0"
+                        label="Белое вино полусладкое"
+                        value="Белое вино полусладкое"
+                      ></v-checkbox>
+                      <v-checkbox
+                        v-model="form.selected"
+                        hide-details class="shrink mr-0 mt-0"
+                        label="Красное вино сухое"
+                        value="Красное вино сухое"
+                      ></v-checkbox>
+                      <v-checkbox
+                        v-model="form.selected"
+                        hide-details class="shrink mr-0 mt-0"
+                        label="Красное вино полусладкое"
+                        value="Красное вино полусладкое"
                       ></v-checkbox>
                       <v-checkbox
                         v-model="form.selected"
@@ -150,30 +150,41 @@
                       ></v-checkbox>
                       <v-checkbox
                         v-model="form.selected"
-                        hide-details class="shrink mr-0 mt-0"
+                        hide-details class="header-font shrink mr-0 mt-0"
                         label="Виски"
                         value="Виски"
-                      ></v-checkbox>           
-              <v-btn 
-               
-                @click="test([2, 2, 3], 4)"
+                      ></v-checkbox>
+                      <v-checkbox
+                        v-model="form.selected"
+                        hide-details class="header-font shrink mr-0 mt-0"
+                        label="Я не пью"
+                        value="Я не пью"
+                      ></v-checkbox>
+                      <v-sheet class="header-font mt-5">
+                        Если вы выбрали вариант "Я не пью" или у вас есть конкретные предпочения в алкоголе, укажите их ниже
+                      </v-sheet>
+                      <v-text-field
+                        class="header-font"
+                        v-model="form.phoneNumber"
+                        label="Предпочтения"
+                        :rules="phoneNumberRules"
+                        variant="underlined"
+                        @input="formatPhoneNumber"
+                      ></v-text-field>          
+              <v-btn               
+                @click="postInfo()"
                 variant="outlined"
                 type="submit" 
                 rounded="xl"
                 block
-                class="my__button mt-4"
+                class="mt-10 header-font"
                 :loading="$store.state.isPostingInfo"
                 >Отправить
-              
-              
-              </v-btn>
-                   
-              
-              </v-sheet>              
-          </v-col>          
+                          
+              </v-btn>             
+              </v-sheet>                      
         </v-row>        
       </v-container>
-
 
 </template>
 

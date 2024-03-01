@@ -7,7 +7,7 @@ export default {
   },
   data() {
     return {
-      coordinates: [59.982154, 30.387329],
+      coordinates: [60.168696, 29.819560],
       controls: ['fullscreenControl'],
       zoom: 15
     };

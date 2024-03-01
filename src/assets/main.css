@@ -1,0 +1,143 @@
+@font-face {
+    font-family: 'Orlando';
+    src: url('../../../assets/fonts/OrlandoCapsCG.otf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+.main-font {
+    font-family: 'Orlando', sans-serif;
+    font-size: 150px;
+    line-height: 0.8;
+}
+
+.main-font-spacing {
+    letter-spacing: -10px;
+}
+
+.header-font {
+    font-family: 'Montserrat', sans-serif !important;
+    font-size: 15px !important;
+    line-height: 1.1;
+}
+
+.header-font-small {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    line-height: 1.1;
+}
+
+.text-font-xs {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    line-height: 1.1;
+}
+
+.timing-font {
+    font-family: 'Orlando', sans-serif;
+    font-size: 15px;
+    line-height: 1.1;
+}
+
+.header-font-orlando {
+    font-family: 'Orlando', sans-serif;
+    font-size: 70px;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.custom-card {
+    height: 400px !important;
+    overflow: hidden !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+.rotated-text {
+    font-size: 70px !important;
+    transform: rotate(-90deg) !important;
+}
+
+.rotated-text-reverse {
+    font-size: 70px !important;
+    transform: rotate(90deg);
+    letter-spacing: 5px;
+}
+
+.letter-spacing {
+    letter-spacing: 40px !important;
+}
+
+.letter-spacing-small {
+    letter-spacing: 20px !important;
+}
+
+.background-color {
+    background-color: #0a0a0a !important;
+}
+
+.white-text {
+  color: #ffffff !important;
+}
+.text-center {
+  text-align: center !important;
+}
+
+.small-dot {
+  font-size: 3px !important
+}
+
+.block-height {
+    min-height: 600px;
+}
+
+.rectangle {
+    height: 30px; /* Высота прямоугольника */
+    width: 100%;
+    margin-top: 5px; /* Расстояние между прямоугольниками */
+}
+.black {
+    background-color: rgb(0, 0, 0) !important
+}
+
+.green {
+    background-color: #2C402B; /* Цвет прямоугольника */
+}
+
+.beige {
+    background-color: #E9E0CB; /* Цвет прямоугольника */
+}
+
+.gray {
+    background-color: #D9D9D9; /* Цвет прямоугольника */
+}
+
+@media screen and (min-width: 768px) {
+  .increase-font {
+    font-size: 20px; 
+  }
+  .increase-font-small {
+    font-size: 15px; 
+  }
+}
+@media screen and (max-width: 380px) {
+  .decriase-main-font {
+    font-size: 120px; 
+  }
+}
+
+@media screen and (max-width: 430px) {
+    .decriase-font {
+      font-size: 50px !important;
+    }
+    
+  }
+  
