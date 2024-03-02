@@ -48,10 +48,6 @@
 
 <style>
 
-.main-cycle {
-  margin-top: 70px;
-}
-
 
 
 </style>

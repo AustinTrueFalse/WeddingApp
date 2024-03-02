@@ -7,6 +7,8 @@
 import { createStore } from 'vuex' 
 import db from '../src/firebase/init.js'
 import { where, query, collection, addDoc, getDocs, updateDoc  } from 'firebase/firestore'
+import { getStorage, ref, getDownloadURL } from 'firebase/storage';
+
 
 export default createStore({
     state: {
@@ -31,6 +33,7 @@ export default createStore({
         timeout: 3000,
         color: 'success',       
       },
+      imageURL: null,
     },
     mutations: {
     // Form
@@ -72,6 +75,9 @@ export default createStore({
       },
       hideSnackbar(state) {
         state.snackbar.show = false;
+      },
+      setImageURL(state, value) {
+        state.imageURL = value;
       }
     },
     actions: {
@@ -184,6 +190,22 @@ export default createStore({
           console.error('Ошибка при обновлении', error)
         }
       },
+      async getImageURL({ commit }, imagePath) {
+        try {
+          const storage = getStorage(); // Получаем экземпляр Firebase Storage
+          const storageRef = ref(storage, imagePath);
+          const imageURL = await getDownloadURL(storageRef);
+  
+          // Обработка полученного URL, например, сохранение в состояние Vuex
+          commit('setImageURL', imageURL);
+  
+          console.log('Image URL:', imageURL);
+        } catch (error) {
+          console.error('Error getting image URL from Firebase Storage:', error.message);
+          // Обработка ошибок, например, вывод в Snackbar
+          // commit('setSnackbar', { message: 'Error getting image', color: 'error' });
+        }
+      },
     // Modals
       showSuccessModal({ commit }) {
         commit('showModal');
@@ -218,5 +240,6 @@ export default createStore({
         radios: (state) => state.radios,
         userQuery: (state) => state.userQuery,
         snackbar: (state) => state.snackbar,
+        imageURL: (state) => state.imageURL,
     },
   });
