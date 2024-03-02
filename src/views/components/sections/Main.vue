@@ -1,6 +1,6 @@
 <template>
 
-    <v-container class="pa-0 pb-15">
+    <v-container class="pa-0 pb-5 mb-10">
         <v-row justify="space-between" class="pt-10">  
             <v-col cols="1">
                 <v-row class="pb-10">

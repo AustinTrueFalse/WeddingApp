@@ -1,36 +1,37 @@
 <template>
-  <v-container fluid>
-    <v-row align="center" justify="center">
-      <v-col cols="12" sm="6" md="4" class="text-center"> <!-- Лучше задать конкретные колонки для адаптивности -->
-          <v-progress-circular
-            v-if="loading"
-            :size="80"
-            :width="10"
-            indeterminate
-            color="primary"
-          ></v-progress-circular>
-          <img
+
+    <v-container class="pa-0 pl-5 pr-5">
+        <v-sheet class="text-center header-font-orlando decriase-font mt-10 end-photo">
+          <v-progress-circular 
+              class="cycle"
+              v-if="loading"
+              :size="80"
+              :width="10"
+              indeterminate
+              color="black"
+
+            ></v-progress-circular>
+            <v-img
             :src="githubImageURL"
-
             @load="onImageLoad"
-
             v-bind="{ width: '100%', height: 'auto'}"
-          ></img>
-      </v-col>
-    </v-row>
-  </v-container>
+        ></v-img>
+        </v-sheet>
+        
+    </v-container>
+    
 </template>
 
 <script>
 export default {
   data() {
     return {
-      githubImageURL: "https://raw.githubusercontent.com/AustinTrueFalse/WeddingApp/main/public/mainphoto.png",
+      githubImageURL: "https://raw.githubusercontent.com/AustinTrueFalse/WeddingApp/main/public/endphoto.jpg",
       loading: true,
     };
   },
   mounted() {
-      window.addEventListener('resize', this.$forceUpdate);
+    window.addEventListener('resize', this.$forceUpdate);
   },
   beforeDestroy() {
     window.removeEventListener('resize', this.$forceUpdate);
@@ -42,3 +43,16 @@ export default {
   },
 };
 </script>
+
+<style>
+
+.end-photo {
+
+  height: 500px;
+}
+
+.cycle {
+  margin-top: 150px;
+}
+
+</style>
