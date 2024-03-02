@@ -1,6 +1,6 @@
 <template>
 
-    <v-container class="pa-0 pl-5">
+    <v-container class="pa-0 pl-5 pr-5">
         <v-sheet class="text-center header-font-orlando decriase-font mt-10">
             LOCATION
         </v-sheet>
@@ -12,8 +12,8 @@
                 <YandexMap />
             </v-card>
 
-            <v-sheet>
-                <v-sheet class="header-font increase-font pt-10">
+            <v-sheet class="pl-5">
+                <v-sheet class="header-font increase-font pt-8">
                 Колокольная горка
                 </v-sheet>
                 <v-sheet class="header-font-small increase-font-small pt-1">

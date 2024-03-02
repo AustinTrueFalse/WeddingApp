@@ -1,6 +1,6 @@
 <template>
 
-    <v-container class="pa-0">
+    <v-container class="pa-0 pb-15">
         <v-row justify="space-between" class="pt-10">  
             <v-col cols="1">
                 <v-row class="pb-10">
@@ -76,10 +76,10 @@
                         <v-sheet class="header-font increase-font">
                         ДРУЗЬЯ И РОДНЫЕ
                         </v-sheet>
-                        <v-sheet class="header-font-small increase-font pt-5">
+                        <v-sheet class="header-font-small increase-font-small pt-5">
                         В нашей жизни скоро состоится важное событие - свадьба!
                         </v-sheet>
-                        <v-sheet class="header-font-small increase-font pt-5">
+                        <v-sheet class="header-font-small increase-font-small pt-5">
                         Мы будем очень рады, если вы разделите этот особенный день с нами!
                         </v-sheet>                    
                     </v-col>           

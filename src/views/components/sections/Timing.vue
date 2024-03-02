@@ -13,19 +13,19 @@
                         cols="2"
                         class="timing-font"
                     >
-                        <v-sheet class="background-color white-text adaptive-font pt-10">
+                        <v-sheet class="background-color white-text increase-timing-font pt-5">
                             15:00
                         </v-sheet>
-                        <v-sheet class=" background-color white-text adaptive-font pt-10">
+                        <v-sheet class=" background-color white-text increase-timing-font pt-10">
                             16:30
                         </v-sheet>
-                        <v-sheet class=" background-color white-text adaptive-font pt-10">
+                        <v-sheet class=" background-color white-text increase-timing-font pt-10">
                             17:00
                         </v-sheet>
-                        <v-sheet class=" background-color white-text adaptive-font pt-10">
+                        <v-sheet class=" background-color white-text increase-timing-font pt-10">
                             18:00
                         </v-sheet>
-                        <v-sheet class=" background-color white-text adaptive-font pt-10">
+                        <v-sheet class=" background-color white-text increase-timing-font pt-10">
                             23:00
                         </v-sheet>
                     </v-col> 
@@ -33,19 +33,19 @@
                         cols="10"
                         class="header-font"
                     >
-                        <v-sheet class="background-color white-text adaptive-font pt-10">
+                        <v-sheet class="background-color white-text increase-font pt-5">
                             ТРАНСФЕР
                         </v-sheet>
-                        <v-sheet class=" background-color white-text adaptive-font pt-10">
+                        <v-sheet class=" background-color white-text increase-font pt-10">
                             WELCOME
                         </v-sheet>
-                        <v-sheet class=" background-color white-text adaptive-font pt-10">
+                        <v-sheet class=" background-color white-text increase-font pt-10">
                             ЦЕРЕМОНИЯ
                         </v-sheet>
-                        <v-sheet class=" background-color white-text adaptive-font pt-10">
+                        <v-sheet class=" background-color white-text increase-font pt-10">
                             УЖИН И ВЕЧЕРИНКА
                         </v-sheet>
-                        <v-sheet class=" background-color white-text adaptive-font pt-10">
+                        <v-sheet class=" background-color white-text increase-font pt-10">
                             ЗАВЕРШЕНИЕ ВЕЧЕРА
                         </v-sheet>
                     </v-col>           

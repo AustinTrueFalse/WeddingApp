@@ -18,7 +18,7 @@
 
 .header-font {
     font-family: 'Montserrat', sans-serif !important;
-    font-size: 15px !important;
+    font-size: 16px !important;
     line-height: 1.1;
 }
 
@@ -36,7 +36,7 @@
 
 .timing-font {
     font-family: 'Orlando', sans-serif;
-    font-size: 15px;
+    font-size: 16px;
     line-height: 1.1;
 }
 
@@ -122,10 +122,23 @@
 
 @media screen and (min-width: 768px) {
   .increase-font {
-    font-size: 20px; 
+    font-size: 20px !important; 
   }
+
   .increase-font-small {
-    font-size: 15px; 
+    font-size: 16px; 
+  }
+
+  .increase-text-font-xs {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    line-height: 1.1;
+  }
+
+  .increase-timing-font {
+      font-family: 'Orlando', sans-serif;
+      font-size: 20px;
+      line-height: 1.1;
   }
 }
 @media screen and (max-width: 380px) {
@@ -135,9 +148,9 @@
 }
 
 @media screen and (max-width: 430px) {
-    .decriase-font {
-      font-size: 50px !important;
-    }
-    
+  .decriase-font {
+    font-size: 50px !important;
   }
+    
+}
   

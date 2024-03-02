@@ -1,12 +1,12 @@
 <template>
 
-<v-container
-class="pa-0">
-  <Main class="pb-10"/>
+<v-container class="pl-0 pr-0">
+  <Main/>
   <Timing/>
   <Location/>
   <DressCode/>
   <Drinks/>
+  <End/>
 </v-container>
   
   
@@ -19,6 +19,7 @@ import Timing from './sections/Timing.vue'
 import Location from './sections/Location.vue'
 import DressCode from './sections/DressCode.vue'
 import Drinks from './sections/Drinks.vue'
+import End from './sections/End.vue'
 
 export default {
   name: "Frame",
@@ -27,7 +28,8 @@ export default {
     Timing,
     Location,
     DressCode,
-    Drinks
+    Drinks,
+    End
   },
 };
 </script>
