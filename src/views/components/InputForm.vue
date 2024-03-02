@@ -38,18 +38,6 @@
           this.$store.commit('updateForm', value);
         },
       },
-      isFormValid() {
-        const isValid = 
-            this.form.firstName.trim() !== '' 
-            && 
-            this.form.phoneNumber.length == 16
-            &&
-            this.form.selected.length > 0
-            &&
-            this.form.radios
-        console.log('isFormValid:', isValid);
-        return isValid;
-    },  
     },
     methods: {
       async postInfo () {
@@ -100,74 +88,85 @@
                       <v-radio label="Не смогу прийти" value="3"></v-radio>
                       </v-radio-group>
                   <p class="header-font">Предпочтения по напиткам</p> 
-                      <v-checkbox
+                      <v-checkbox 
+                     
                         v-model="form.selected"
                         hide-details class="shrink mr-0 mt-0"
                         label="Игристое сухое"
                         value="Игристое сухое"
                         ></v-checkbox>
                       <v-checkbox
+                       
                         v-model="form.selected"
                         hide-details class="shrink mr-0 mt-0"
                         label="Игристое полусладкое"
                         value="Игристое полусладкое"
                       ></v-checkbox>
                       <v-checkbox
+                        
                         v-model="form.selected"
                         hide-details class="shrink mr-0 mt-0"
                         label="Белое вино сухое"
                         value="Белое вино сухое"
                       ></v-checkbox>
                       <v-checkbox
+                      
                         v-model="form.selected"
                         hide-details class="shrink mr-0 mt-0"
                         label="Белое вино полусладкое"
                         value="Белое вино полусладкое"
                       ></v-checkbox>
                       <v-checkbox
+                     
                         v-model="form.selected"
                         hide-details class="shrink mr-0 mt-0"
                         label="Красное вино сухое"
                         value="Красное вино сухое"
                       ></v-checkbox>
                       <v-checkbox
+                    
                         v-model="form.selected"
                         hide-details class="shrink mr-0 mt-0"
                         label="Красное вино полусладкое"
                         value="Красное вино полусладкое"
                       ></v-checkbox>
                       <v-checkbox
+                  
                         v-model="form.selected"
                         hide-details class="shrink mr-0 mt-0"
                         label="Водка"
                         value="Водка"
                       ></v-checkbox>
                       <v-checkbox
+                        
                         v-model="form.selected"
                         hide-details class="shrink mr-0 mt-0"
                         label="Коньяк"
                         value="Коньяк"
                       ></v-checkbox>
                       <v-checkbox
+                        
                         v-model="form.selected"
                         hide-details class="header-font shrink mr-0 mt-0"
                         label="Виски"
                         value="Виски"
                       ></v-checkbox>
                       <v-checkbox
+                       
                         v-model="form.selected"
                         hide-details class="header-font shrink mr-0 mt-0"
                         label="Я не пью"
                         value="Я не пью"
                       ></v-checkbox>
-                      <v-sheet class="header-font mt-5">
+                      <v-sheet 
+                      
+                        class="header-font mt-5">
                         Если вы выбрали вариант "Я не пью" или у вас есть конкретные предпочения в алкоголе, укажите их ниже
                       </v-sheet>
                       <v-text-field
-                        class="header-font"
-                        v-model="form.phoneNumber"
+                        class="header-font pt-5"
+                        v-model="form.handleChoises"
                         label="Предпочтения"
-                        :rules="phoneNumberRules"
                         variant="underlined"
                         @input="formatPhoneNumber"
                       ></v-text-field>          

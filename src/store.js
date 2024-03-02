@@ -1,13 +1,8 @@
-/*
-[+] Добавить processcycle на отправку и на апдейт
-[-] На апдейте заменить snackbar на что-нибудь другое
-[+] Долго отправляется?
-*/
+
 
 import { createStore } from 'vuex' 
 import db from '../src/firebase/init.js'
 import { where, query, collection, addDoc, getDocs, updateDoc  } from 'firebase/firestore'
-import { getStorage, ref, getDownloadURL } from 'firebase/storage';
 
 
 export default createStore({
@@ -18,11 +13,15 @@ export default createStore({
         phoneNumber: '',
         selected: [],
         radios: '',
+        handleChoises: '',
         isPostingInfo: false,
       },
     // Modals
       dialogVisible: false,
-      dialogMessage: '',
+      dialogMessage: {
+        header: '',
+        footer: '',
+      },
       dialogForUpdateVisible: false,
     //UpdateLogic
       userQuery: null,
@@ -46,6 +45,7 @@ export default createStore({
           phoneNumber: '',
           selected: [],
           radios: '',
+          handleChoises: '',
         };
       },
       setPostingInfo(state, value) {
@@ -55,8 +55,9 @@ export default createStore({
       showModal(state) {
         state.dialogVisible = true;
       },
-      setModalMessage(state, value) {
-        state.dialogMessage = value;
+      setModalMessage(state, {header, footer}) {
+        state.dialogMessage.header = header;
+        state.dialogMessage.footer = footer;
       },
       showUpdateModal(state) {
         state.dialogForUpdateVisible = true;
@@ -76,9 +77,6 @@ export default createStore({
       hideSnackbar(state) {
         state.snackbar.show = false;
       },
-      setImageURL(state, value) {
-        state.imageURL = value;
-      }
     },
     actions: {
     // Form
@@ -89,7 +87,7 @@ export default createStore({
             && 
             state.form.phoneNumber.length == 16
             &&
-            state.form.selected.length > 0
+            (state.form.selected.length > 0 || state.form.radios != '1')
             &&
             state.form.radios
         console.log('isFormValid:', isValid);
@@ -100,14 +98,23 @@ export default createStore({
 
             switch (state.form.radios) {
                 case '1':
-                  commit('setModalMessage', 'Будем вас ждать!')
+                  commit('setModalMessage', {
+                    header: 'Будем вас ждать!',
+                    footer: 'Если вы в будущем захотите изменить выбор напитков, заполните эту форму еще раз, ответы принимаем до 01.07'
+                  })
                   break;
                 case '2':
-                  commit('setModalMessage', 'Очень жаль, что вы не сможете прийти :(')
-                    break;
+                  commit('setModalMessage', {
+                    header: 'Надеемся у вас все таки получится прийти',
+                    footer: 'Если у вас изменятся планы и получится прийти, пожалуйста, заполните анкету еще раз, ответы принимаем до 01.05'
+                  })
+                  break;
                 case '3':
-                  commit('setModalMessage', 'Очень жаль, что вы не сможете прийти :(')
-                    break;
+                  commit('setModalMessage', {
+                    header: 'Очень жаль, что вы не сможете прийти :(',
+                    footer: 'Если у вас изменятся планы и получится прийти, пожалуйста, заполните анкету еще раз, ответы принимаем до 01.05'
+                  })
+                  break;
               }
       
               try {
@@ -129,7 +136,9 @@ export default createStore({
                   name: state.form.firstName,
                   visit: state.form.radios,
                   alco: state.form.selected,
-                  phone: state.form.phoneNumber
+                  phone: state.form.phoneNumber,
+                  handleChoises: state.form.handleChoises
+
                 }
             
                 const docRec = await addDoc(colRef, dataObj)
@@ -168,7 +177,8 @@ export default createStore({
             name: state.form.firstName,
             visit: state.form.radios,
             alco: state.form.selected,
-            phone: state.form.phoneNumber
+            phone: state.form.phoneNumber,
+            handleChoises: state.form.handleChoises
           }
           await updateDoc(docRefToUpdate, dataObj);
 
@@ -188,22 +198,6 @@ export default createStore({
           })
           commit('setPostingInfo', false);
           console.error('Ошибка при обновлении', error)
-        }
-      },
-      async getImageURL({ commit }, imagePath) {
-        try {
-          const storage = getStorage(); // Получаем экземпляр Firebase Storage
-          const storageRef = ref(storage, imagePath);
-          const imageURL = await getDownloadURL(storageRef);
-  
-          // Обработка полученного URL, например, сохранение в состояние Vuex
-          commit('setImageURL', imageURL);
-  
-          console.log('Image URL:', imageURL);
-        } catch (error) {
-          console.error('Error getting image URL from Firebase Storage:', error.message);
-          // Обработка ошибок, например, вывод в Snackbar
-          // commit('setSnackbar', { message: 'Error getting image', color: 'error' });
         }
       },
     // Modals
@@ -235,11 +229,8 @@ export default createStore({
         dialogVisible: (state) => state.dialogVisible,
         dialogMessage: (state) => state.dialogMessage,
         dialogForUpdateVisible: (state) => state.dialogForUpdateVisible,
-        phoneNumber: (state) => state.phoneNumber,
-        selected: (state) => state.selected,
-        radios: (state) => state.radios,
         userQuery: (state) => state.userQuery,
         snackbar: (state) => state.snackbar,
-        imageURL: (state) => state.imageURL,
+        
     },
   });

@@ -33,28 +33,34 @@ export default {
 <template>
     <v-dialog v-model="dialogVisible">
         <v-card
-        rounded="xl"  
+        rounded="xl"
+        class="header-font"  
         >
         <v-card-title>Анкета с указанным номером телефона уже существует</v-card-title>
-        <v-card-text>
-            
-            Ваши предпочения по напиткам
-           
+        <v-card-text v-if="getForm.radios == '1'">           
+            Ваши предпочения по напиткам          
             <v-list v-for="drink in getForm.selected">
             {{ drink }}
             </v-list>
         </v-card-text>
-        <v-card-text>Перезаписать выбор по предпочннениями?</v-card-text>
+        <v-card-text>Перезаписать выбор по предпочннениями?   
+        </v-card-text>
         <v-card-actions>
-            <v-btn @click="changeUpdateAgree(getUserQuery)"
-            :loading="$store.state.isPostingInfo"
-            >Перезаписать</v-btn>
+            <v-btn 
+                rounded="xl"
+                class="ml-2"
+                @click="changeUpdateAgree(getUserQuery)"
+                :loading="$store.state.isPostingInfo"
+            >Перезаписать
+            </v-btn>
         </v-card-actions>
         <v-card-actions>
             <v-btn 
-                @click="hideModal()"
-                
-            >Close</v-btn>
+                rounded="xl"
+                class="ml-2"
+                @click="hideModal()"              
+            >Закрыть
+            </v-btn>
         </v-card-actions>
         </v-card>
     </v-dialog>

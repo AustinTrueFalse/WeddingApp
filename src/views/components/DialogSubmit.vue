@@ -1,4 +1,7 @@
 <script>
+
+import '../../assets/main.css'
+
 export default {
     computed: {
         dialogVisible: {
@@ -6,7 +9,6 @@ export default {
                 return this.$store.getters.dialogVisible;
             },
             set(value) {
-                // Если требуется управление видимостью модального окна из компонента
                 this.$store.dispatch(value ? 'showSuccessModal' : 'hideSuccessModal');
             },
         },
@@ -29,21 +31,29 @@ export default {
 <template>
     <v-dialog v-model="dialogVisible">
         <v-card
+        class="header-font"
         rounded="xl"  
         >
-        <v-card-title>Ваша анкета заполнена</v-card-title>
+        <v-card-title>Анкета заполнена!</v-card-title>
         <v-card-text v-if="getDialogMessage">
-            {{ getDialogMessage }}
-           
-                Ваши предпочения по напиткам
-           
-            <v-list v-for="drink in getForm.selected">
-            {{ drink }}
-            </v-list>
-            Если вы в будущем захотите изменить выбор напитков, заполните эту форму еще раз
+            {{ getDialogMessage.header }}          
+            <v-card-text
+                v-if="getForm.radios == '1'"
+                >
+                Ваш выбор:
+                <v-list v-for="drink in getForm.selected">
+                {{ drink }}
+                </v-list>
+            </v-card-text>         
         </v-card-text>
+        <v-card-text v-if="getDialogMessage">
+            {{ getDialogMessage.footer }} 
+        </v-card-text>
+        
         <v-card-actions>
-            <v-btn @click="hideModal()">Close</v-btn>
+            <v-btn 
+            rounded="xl"
+            @click="hideModal()">Закрыть</v-btn>
         </v-card-actions>
         </v-card>
     </v-dialog>
