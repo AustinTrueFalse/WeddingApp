@@ -149,12 +149,7 @@ export default createStore({
                 message: 'Заполните все поля формы', 
                 color: 'error'
             })
-        }
-
-
-        
-
-        
+        }       
       },
       async updateInfo({ commit, state }) {
        
