@@ -36,14 +36,18 @@ export default {
         rounded="xl"
         class="header-font"  
         >
-        <v-card-title>Анкета с указанным номером телефона уже существует</v-card-title>
-        <v-card-text v-if="getForm.radios == '1'">           
-            Ваши предпочения по напиткам          
+        
+        <v-card-text>
+            По вашему номеру телефона уже есть заполненная анкета
+        </v-card-text>
+        
+        <v-card-text>Перезаписать анкету?  
+        </v-card-text>
+        <v-card-text v-if="getForm.radios != '3'">           
+            Ваш выбор:     
             <v-list v-for="drink in getForm.selected">
             {{ drink }}
             </v-list>
-        </v-card-text>
-        <v-card-text>Перезаписать выбор по предпочннениями?   
         </v-card-text>
         <v-card-actions>
             <v-btn 

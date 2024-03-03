@@ -65,7 +65,7 @@
         </v-row>
         <v-row justify="space-between">  
             <v-col
-                class="montserrat_font first-row pt-15"
+                class="montserrat_font first-row mt-2"
                 cols="6"
             >
                 <v-row>
@@ -87,12 +87,12 @@
 
             </v-col>
             <v-col
-                class="text-right orlando_font pa-0 pr-5 pt-5"
+                class="pa-0 pr-5 pt-5"
                 cols="6"
-            >
-                <v-sheet block>
-                    <MainPhoto />
-                </v-sheet>
+            >         
+            
+                <MainPhoto/>
+                    
             </v-col>
         </v-row>
     </v-container>

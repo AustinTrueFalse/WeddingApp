@@ -1,6 +1,6 @@
 <template>
 
-<v-container class="pl-0 pr-0">
+<v-container class="pl-0 pr-0 ">
   <Main/>
   <Timing/>
   <Location/>

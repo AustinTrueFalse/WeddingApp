@@ -38,7 +38,7 @@ export default {
         <v-card-text v-if="getDialogMessage">
             {{ getDialogMessage.header }}          
             <v-card-text
-                v-if="getForm.radios == '1'"
+                v-if="getForm.radios != '3'"
                 >
                 Ваш выбор:
                 <v-list v-for="drink in getForm.selected">

@@ -1,7 +1,7 @@
 <template>
    
 
-  <v-container class="pa-0 pl-5 pr-5 mb-5">
+  <v-container class="pa-0 pl-5 pr-5 mb-5 ">
       <v-sheet class="text-center header-font-orlando decriase-font main-photo">
         <v-progress-circular 
             class="main-cycle"
@@ -31,7 +31,7 @@ export default {
       loading: true,
     };
   },
-  mounted() {
+  created() {
     window.addEventListener('resize', this.$forceUpdate);
   },
   beforeDestroy() {

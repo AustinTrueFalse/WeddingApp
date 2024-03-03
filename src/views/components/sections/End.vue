@@ -1,6 +1,6 @@
 <template>
 
-    <v-container class="pa-0 pt-15 pb-16" >
+    <v-container class="pa-0 pt-15 pb-16 " >
         
         <EndPhoto/>
 

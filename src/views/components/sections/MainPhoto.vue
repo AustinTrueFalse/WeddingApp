@@ -1,8 +1,6 @@
 <template>
-   
-
-    <v-container class="pa-0 pl-5 pr-5 mb-5">
-        <v-sheet class="text-center header-font-orlando decriase-font main-photo">
+    <v-container class="pa-0 pl-5 pr-5 mb-5 ">
+        <v-sheet class="text-center">
           <v-progress-circular 
               class="main-cycle"
               v-if="loading"

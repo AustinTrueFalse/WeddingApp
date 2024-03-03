@@ -19,20 +19,11 @@
 
         
       <v-container 
-        class="pa-0 custom-max-width"
+        class="pa-0 custom-max-width overflow-hidden" 
         >
 
         <Frame />
 
-        <!-- <v-card
-          rounded="xl"
-          variant="flat"
-        >
-          <YandexMap />
-        </v-card>
-        
-        <InputForm />
-                  -->
       </v-container>
 
 </template>
