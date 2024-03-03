@@ -2,7 +2,7 @@
 
     <v-container class="pa-0 ">
         <v-sheet class="text-center header-font increase-font pt-10">
-            ПОЖАЛУЙСТА ПОДТВЕРДИТЕ ВАШЕ ПРИСУТСТВИЕ
+            ПОЖАЛУЙСТА, ПОДТВЕРДИТЕ ВАШЕ ПРИСУТСТВИЕ
         </v-sheet>
                             
         <v-card

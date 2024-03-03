@@ -33,19 +33,19 @@
                         cols="10"
                         class="header-font"
                     >
-                        <v-sheet class="background-color white-text increase-font pt-5">
+                        <v-sheet class="background-color white-text increase-font pt-5 pl-2">
                             ТРАНСФЕР
                         </v-sheet>
-                        <v-sheet class=" background-color white-text increase-font pt-10">
+                        <v-sheet class=" background-color white-text increase-font pt-10 pl-2">
                             WELCOME
                         </v-sheet>
-                        <v-sheet class=" background-color white-text increase-font pt-10">
+                        <v-sheet class=" background-color white-text increase-font pt-10 pl-2">
                             ЦЕРЕМОНИЯ
                         </v-sheet>
-                        <v-sheet class=" background-color white-text increase-font pt-10">
+                        <v-sheet class=" background-color white-text increase-font pt-10 pl-2">
                             УЖИН И ВЕЧЕРИНКА
                         </v-sheet>
-                        <v-sheet class=" background-color white-text increase-font pt-10">
+                        <v-sheet class=" background-color white-text increase-font pt-10 pl-2">
                             ЗАВЕРШЕНИЕ ВЕЧЕРА
                         </v-sheet>
                     </v-col>           

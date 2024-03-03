@@ -137,7 +137,7 @@
 
   .increase-timing-font {
       font-family: 'Orlando', sans-serif;
-      font-size: 20px;
+      font-size: 20\px !important; ;
       line-height: 1.1;
   }
 }

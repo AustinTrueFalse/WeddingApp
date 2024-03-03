@@ -38,6 +38,7 @@
           this.$store.commit('updateForm', value);
         },
       },
+    
     },
     methods: {
       async postInfo () {
@@ -47,9 +48,26 @@
         this.$store.dispatch('showSuccessModal')
       },
       formatPhoneNumber() {
-        this.form.phoneNumber = this.form.phoneNumber.replace(/\D/g, '');
-        this.form.phoneNumber = this.form.phoneNumber.replace(/(\d{1,1})(\d{1,3})(\d{1,3})(\d{1,2})(\d{1,2})/, '+$1-$2-$3-$4-$5');
-      },   
+
+        let phoneNumberDigits = this.form.phoneNumber.replace(/\D/g, '');
+
+        if (phoneNumberDigits.charAt(0) === '8') {
+          phoneNumberDigits = '7' + phoneNumberDigits.slice(1);
+        }
+
+        
+        this.form.phoneNumber = phoneNumberDigits.replace(/(\d{1,1})(\d{1,3})(\d{1,3})(\d{1,2})(\d{1,2})/, '+$1-$2-$3-$4-$5');
+      }, 
+      handleNoDrinkCheckbox() {
+        if (this.form.selected.includes("Я не пью")) {
+          this.form.selected = ["Я не пью"];
+        }
+      }, 
+      handleDrinkCheckbox() {
+        if (this.form.selected.includes("Я не пью")) {
+          this.form.selected = this.form.selected.filter(choise => choise !== "Я не пью");
+        }
+      },  
     }
   }
 
@@ -88,75 +106,74 @@
                       <v-radio label="Не смогу прийти" value="3"></v-radio>
                       </v-radio-group>
                   <p class="header-font">Предпочтения по напиткам</p> 
-                      <v-checkbox 
-                     
+                      <v-checkbox                     
                         v-model="form.selected"
                         hide-details class="shrink mr-0 mt-0"
                         label="Игристое сухое"
                         value="Игристое сухое"
+                        @change="handleDrinkCheckbox"
                         ></v-checkbox>
-                      <v-checkbox
-                       
+                      <v-checkbox                       
                         v-model="form.selected"
                         hide-details class="shrink mr-0 mt-0"
                         label="Игристое полусладкое"
                         value="Игристое полусладкое"
+                        @change="handleDrinkCheckbox"
                       ></v-checkbox>
-                      <v-checkbox
-                        
+                      <v-checkbox                       
                         v-model="form.selected"
                         hide-details class="shrink mr-0 mt-0"
                         label="Белое вино сухое"
                         value="Белое вино сухое"
                       ></v-checkbox>
-                      <v-checkbox
-                      
+                      <v-checkbox                      
                         v-model="form.selected"
                         hide-details class="shrink mr-0 mt-0"
                         label="Белое вино полусладкое"
                         value="Белое вино полусладкое"
+                        @change="handleDrinkCheckbox"
                       ></v-checkbox>
-                      <v-checkbox
-                     
+                      <v-checkbox                    
                         v-model="form.selected"
                         hide-details class="shrink mr-0 mt-0"
                         label="Красное вино сухое"
                         value="Красное вино сухое"
+                        @change="handleDrinkCheckbox"
                       ></v-checkbox>
-                      <v-checkbox
-                    
+                      <v-checkbox                   
                         v-model="form.selected"
                         hide-details class="shrink mr-0 mt-0"
                         label="Красное вино полусладкое"
                         value="Красное вино полусладкое"
+                        @change="handleDrinkCheckbox"
                       ></v-checkbox>
-                      <v-checkbox
-                  
+                      <v-checkbox                 
                         v-model="form.selected"
                         hide-details class="shrink mr-0 mt-0"
                         label="Водка"
                         value="Водка"
+                        @change="handleDrinkCheckbox"
                       ></v-checkbox>
-                      <v-checkbox
-                        
+                      <v-checkbox                        
                         v-model="form.selected"
                         hide-details class="shrink mr-0 mt-0"
                         label="Коньяк"
                         value="Коньяк"
+                        @change="handleDrinkCheckbox"
                       ></v-checkbox>
-                      <v-checkbox
-                        
+                      <v-checkbox                        
                         v-model="form.selected"
                         hide-details class="header-font shrink mr-0 mt-0"
                         label="Виски"
                         value="Виски"
+                        @change="handleDrinkCheckbox"
                       ></v-checkbox>
-                      <v-checkbox
-                       
+                      <v-checkbox 
                         v-model="form.selected"
                         hide-details class="header-font shrink mr-0 mt-0"
                         label="Я не пью"
                         value="Я не пью"
+                        @change="handleNoDrinkCheckbox"
                       ></v-checkbox>
                       <v-sheet 
                       

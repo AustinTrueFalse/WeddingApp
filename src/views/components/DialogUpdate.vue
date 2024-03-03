@@ -41,7 +41,7 @@ export default {
             По вашему номеру телефона уже есть заполненная анкета
         </v-card-text>
         
-        <v-card-text>Перезаписать анкету?  
+        <v-card-text>Изменить данные старой анкеты?  
         </v-card-text>
         <v-card-text v-if="getForm.radios != '3'">           
             Ваш выбор:     
