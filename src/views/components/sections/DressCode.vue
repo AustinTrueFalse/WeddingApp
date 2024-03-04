@@ -24,10 +24,10 @@
                   ЦВЕТА
                 </v-sheet>
                 <v-row justify="center" class="pt-3 pl-3">
-                  <v-col cols="3" class="rectangle black"></v-col>
-                  <v-col cols="3" class="rectangle green"></v-col>
-                  <v-col cols="3" class="rectangle beige"></v-col>
                   <v-col cols="3" class="rectangle gray"></v-col>
+                  <v-col cols="3" class="rectangle beige"></v-col>
+                  <v-col cols="3" class="rectangle green"></v-col>
+                  <v-col cols="3" class="rectangle black"></v-col>
                 </v-row>
                 <v-sheet class="header-font increase-font pt-10">
                   ДАМЫ
