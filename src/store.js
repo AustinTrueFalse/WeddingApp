@@ -4,6 +4,7 @@ import { createStore } from 'vuex'
 import db from '../src/firebase/init.js'
 import { where, query, collection, addDoc, getDocs, updateDoc  } from 'firebase/firestore'
 
+const appIdentifier = 'NeMGAbIUKU'
 
 export default createStore({
     state: {
@@ -137,8 +138,8 @@ export default createStore({
                   visit: state.form.radios,
                   alco: state.form.selected,
                   phone: state.form.phoneNumber,
-                  handleChoises: state.form.handleChoises
-
+                  handleChoises: state.form.handleChoises,
+                  appIdentifier: 'NeMGAbIUKU'
                 }
             
                 const docRec = await addDoc(colRef, dataObj)
@@ -178,7 +179,8 @@ export default createStore({
             visit: state.form.radios,
             alco: state.form.selected,
             phone: state.form.phoneNumber,
-            handleChoises: state.form.handleChoises
+            handleChoises: state.form.handleChoises,
+            appIdentifier: 'NeMGAbIUKU'
           }
           await updateDoc(docRefToUpdate, dataObj);
 
