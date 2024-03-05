@@ -139,7 +139,7 @@ export default createStore({
                   alco: state.form.selected,
                   phone: state.form.phoneNumber,
                   handleChoises: state.form.handleChoises,
-                  appIdentifier: 'NeMGAbIUKU'
+                  
                 }
             
                 const docRec = await addDoc(colRef, dataObj)
@@ -180,7 +180,7 @@ export default createStore({
             alco: state.form.selected,
             phone: state.form.phoneNumber,
             handleChoises: state.form.handleChoises,
-            appIdentifier: 'NeMGAbIUKU'
+            
           }
           await updateDoc(docRefToUpdate, dataObj);
 
