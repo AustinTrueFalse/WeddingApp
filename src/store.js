@@ -4,7 +4,6 @@ import { createStore } from 'vuex'
 import db from '../src/firebase/init.js'
 import { where, query, collection, addDoc, getDocs, updateDoc  } from 'firebase/firestore'
 
-const appIdentifier = 'NeMGAbIUKU'
 
 export default createStore({
     state: {
@@ -119,7 +118,7 @@ export default createStore({
               }
       
               try {
-                const q = query(collection(db, 'UserChoises'), where('phone', '==', state.form.phoneNumber))
+                const q = query(collection(db, 'UserData'), where('phone', '==', state.form.phoneNumber))
                 const querySnap = await getDocs(q)
                     
                 if(!querySnap.empty) {
@@ -131,15 +130,15 @@ export default createStore({
                   state.userQuery = querySnap
                   return
                 }
-                const colRef = collection(db, 'UserChoises')
+                const colRef = collection(db, 'UserData')
       
                 const dataObj = {
                   name: state.form.firstName,
                   visit: state.form.radios,
                   alco: state.form.selected,
                   phone: state.form.phoneNumber,
-                  handleChoises: state.form.handleChoises,
-                  
+                  handleChoises: state.form.handleChoises
+
                 }
             
                 const docRec = await addDoc(colRef, dataObj)
@@ -179,8 +178,7 @@ export default createStore({
             visit: state.form.radios,
             alco: state.form.selected,
             phone: state.form.phoneNumber,
-            handleChoises: state.form.handleChoises,
-            
+            handleChoises: state.form.handleChoises
           }
           await updateDoc(docRefToUpdate, dataObj);
 
