@@ -1,4 +1,7 @@
 <script>
+
+import '../../assets/main.css'
+
 export default {
     computed: {
         dialogVisible: {
@@ -31,7 +34,7 @@ export default {
 </script>
 
 <template>
-    <v-dialog v-model="dialogVisible">
+    <v-dialog v-model="dialogVisible" class="max-width-modal">
         <v-card
         rounded="xl"
         class="header-font"  

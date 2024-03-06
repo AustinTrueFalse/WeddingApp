@@ -120,6 +120,24 @@
     background-color: #D9D9D9; /* Цвет прямоугольника */
 }
 
+.rounded-snackbar {
+  border-radius: 59%; /* Здесь вы можете установить желаемый радиус закругления углов */
+}
+
+.max-width-frame {
+  max-width: 1200px  !important;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.max-width-modal {
+  max-width: 800px  !important;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 @media screen and (min-width: 768px) {
   .increase-font {
     font-size: 20px !important; 
@@ -140,6 +158,8 @@
       font-size: 20\px !important; ;
       line-height: 1.1;
   }
+
+  
 }
 @media screen and (max-width: 380px) {
   .decriase-main-font {

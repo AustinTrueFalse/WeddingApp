@@ -1,17 +1,20 @@
 <script>
  
-  export default {
-    computed: {
-      getSnackbar() {
-        return this.$store.getters.snackbar
-      }
+import '../../assets/main.css'
+
+export default {
+  computed: {
+    getSnackbar() {
+      return this.$store.getters.snackbar
     }
   }
+}
 
 </script>
 
 <template>
-    <v-snackbar  
+    <v-snackbar class="header-font" 
+        rounded="pill"
         v-model="getSnackbar.show" 
         :timeout="getSnackbar.timeout" 
         :color="getSnackbar.color">

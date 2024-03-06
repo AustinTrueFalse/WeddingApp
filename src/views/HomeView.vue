@@ -1,5 +1,7 @@
 <script>
 
+import '../assets/main.css'
+
   import InputForm from './components/InputForm.vue'
   import YandexMap from './components/YandexMap.vue'
   import Frame from './components/Frame.vue'
@@ -19,7 +21,7 @@
 
         
       <v-container 
-        class="pa-0 custom-max-width overflow-hidden" 
+        class="pa-0 max-width-frame overflow-hidden" 
         >
 
         <Frame />
@@ -29,13 +31,3 @@
 </template>
 
 
-<style>
-
-.custom-max-width {
-  max-width: 1200px  !important;
-  width: 100%;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-</style>

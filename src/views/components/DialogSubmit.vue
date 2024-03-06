@@ -29,7 +29,7 @@ export default {
 </script>
 
 <template>
-    <v-dialog v-model="dialogVisible">
+    <v-dialog v-model="dialogVisible" class="max-width-modal">
         <v-card
         class="header-font"
         rounded="xl"  
