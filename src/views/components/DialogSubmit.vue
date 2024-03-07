@@ -41,8 +41,10 @@ export default {
                 v-if="getForm.radios != '3'"
                 >
                 Ваш выбор:
-                <v-list v-for="drink in getForm.selected">
-                {{ drink }}
+                <v-list lines="one">
+                    <v-list-item  v-for="drink in getForm.selected">
+                        <v-icon>mdi-circle-small</v-icon> {{ drink }}
+                    </v-list-item>
                 </v-list>
             </v-card-text>         
         </v-card-text>

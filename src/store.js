@@ -137,7 +137,8 @@ export default createStore({
                   visit: state.form.radios,
                   alco: state.form.selected,
                   phone: state.form.phoneNumber,
-                  handleChoises: state.form.handleChoises
+                  handleChoises: state.form.handleChoises,
+                  appId: "test"
 
                 }
             
@@ -178,7 +179,8 @@ export default createStore({
             visit: state.form.radios,
             alco: state.form.selected,
             phone: state.form.phoneNumber,
-            handleChoises: state.form.handleChoises
+            handleChoises: state.form.handleChoises,
+            appId: "test"
           }
           await updateDoc(docRefToUpdate, dataObj);
 

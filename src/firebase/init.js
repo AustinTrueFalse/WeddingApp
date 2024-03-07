@@ -19,8 +19,9 @@ const firebaseApp = initializeApp(firebaseConfig);
 
 initializeAppCheck(firebaseApp, {
   provider: new ReCaptchaEnterpriseProvider('6Lf6y40pAAAAAC05J_okJmPZ2-jGVec4aWXK0bl3'),
-  isTokenAutoRefreshEnabled: true, // Установите true для разрешения автоматического обновления.
+  isTokenAutoRefreshEnabled: true, 
 });
+
 
 const db = getFirestore()
 export default db
