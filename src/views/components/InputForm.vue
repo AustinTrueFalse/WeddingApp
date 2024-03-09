@@ -49,14 +49,30 @@
       },
       formatPhoneNumber() {
 
-        let phoneNumberDigits = this.form.phoneNumber.replace(/\D/g, '');
+        let phoneNumberDigits = this.form.phoneNumber.replace(/[^0-9+]/g, '');
 
-        if (phoneNumberDigits.charAt(0) === '8') {
-          phoneNumberDigits = '7' + phoneNumberDigits.slice(1);
+        
+
+        if (phoneNumberDigits.charAt(0) === '+') {
+            
+          if (phoneNumberDigits.charAt(1) === '8') {
+            phoneNumberDigits = '+7' + phoneNumberDigits.slice(2);
+          }
+
+          this.form.phoneNumber = phoneNumberDigits.replace(/(\d{1,1})(\d{1,3})(\d{1,3})(\d{1,2})(\d{1,2})/, '$1-$2-$3-$4-$5');        
+        }
+
+        else {
+          
+          if (phoneNumberDigits.charAt(0) === '8') {
+            phoneNumberDigits = '7' + phoneNumberDigits.slice(1);
+          }
+
+          this.form.phoneNumber = phoneNumberDigits.replace(/(\d{1,1})(\d{1,3})(\d{1,3})(\d{1,2})(\d{1,2})/, '+$1-$2-$3-$4-$5');
         }
 
         
-        this.form.phoneNumber = phoneNumberDigits.replace(/(\d{1,1})(\d{1,3})(\d{1,3})(\d{1,2})(\d{1,2})/, '+$1-$2-$3-$4-$5');
+        
       }, 
       handleNoDrinkCheckbox() {
         if (this.form.selected.includes("Я не пью")) {

@@ -177,4 +177,13 @@
   }
     
 }
+
+
+@media screen and (max-width: 320px) {
+  .decriase-font {
+    font-size: 40px !important;
+  }
+    
+}
+  
   
