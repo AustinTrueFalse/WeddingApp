@@ -1,24 +1,30 @@
 <template>
   <v-container>
-    <div class="d-flex justify-center mb-6 header-font-orlando">
-      BINGO
-    </div>
-    <div class="d-flex justify-center header-font">
+    <div class="d-flex justify-center mb-6 header-font-orlando">BINGO</div>
+    <div class="d-flex justify-center header-font decriase-font-bingo">
       cобрал строку/столбец - кричи бинго !!!
     </div>
     <v-data-table :items="items" :headers="headers">
       <template v-slot:item="{ item }">
-        <tr class="large-row">
-          <td v-for="(header, index) in headers" :key="index" class="large-cell">
-            <v-card 
+        <tr class="large-row header-font-small">
+          <td
+            v-for="(header, index) in headers"
+            :key="index"
+            class="large-cell"
+          >
+            <v-card
               @click="handleClick(item[header.value])"
-              :color="isCardClicked(item[header.value]) ? 'purple-accent-3' : 'grey-darken-4'"
+              :color="
+                isCardClicked(item[header.value])
+                  ? 'purple-accent-3'
+                  : 'grey-darken-4'
+              "
               variant="tonal"
               class="full-size-card d-flex align-center header-font-small"
             >
-            <div class="pl-2 pr-1">
-              {{ item[header.value] }}
-            </div>
+              <div class="pl-2 pr-1">
+                {{ item[header.value] }}
+              </div>
             </v-card>
           </td>
         </tr>
@@ -29,11 +35,15 @@
 </template>
 <script>
 
-import Cookies from 'js-cookie';
-import '../assets/main.css'
+import Cookies from "js-cookie";
+import "../assets/main.css";
+
+const gameKey = import.meta.env.VITE_APP_GAME_KEY;
+
 export default {
   data() {
     return {
+      win: 0,
       clickedCards: this.getClickedCardsFromCookies(),
       headers: [
         { text: "Column 1", value: "col1" },
@@ -93,24 +103,43 @@ export default {
         this.clickedCards.push(item);
       }
       this.saveClickedCardsToCookies();
+      this.checkKey();
     },
     isCardClicked(item) {
       return this.clickedCards.includes(item);
     },
     saveClickedCardsToCookies() {
-      Cookies.set('clickedCards', JSON.stringify(this.clickedCards), { expires: 7 }); // Сохраняем на 7 дней
+      Cookies.set("clickedCards", JSON.stringify(this.clickedCards), {
+        expires: 7,
+      });
     },
     getClickedCardsFromCookies() {
-      const clickedCards = Cookies.get('clickedCards');
+      const clickedCards = Cookies.get("clickedCards");
       return clickedCards ? JSON.parse(clickedCards) : [];
+    },
+    checkKey() {
+      const sortedUserKey = this.clickedCards
+        .map((e) => e.toLocaleLowerCase())
+        .sort()
+        .toString();
+
+      if (gameKey == sortedUserKey) {
+        console.log("Победа");
+        this.win = 1;
+      } else {
+        console.log("Не набрано");
+        this.win = 0;
+      }
+
+      console.log(this.win);
     },
   },
 };
 </script>
 
 <style scoped>
-.v-table .v-table__wrapper>table>tbody>tr:not(:last-child)>td,
-.v-table .v-table__wrapper>table>tbody>tr:not(:last-child)>th {
+.v-table .v-table__wrapper > table > tbody > tr:not(:last-child) > td,
+.v-table .v-table__wrapper > table > tbody > tr:not(:last-child) > th {
   border-bottom: none;
 }
 
@@ -127,5 +156,16 @@ export default {
   height: 100%;
   padding: 0 !important;
   margin: 0 !important;
+}
+
+@media (max-width: 359px) {
+  .full-size-card {
+    /* Например, уменьшим высоту карты на мобильных экранах */
+    width: 50px;
+  }
+
+  .header-font-small {
+    font-size: 10px; /* Пример уменьшения размера шрифта */
+  }
 }
 </style>

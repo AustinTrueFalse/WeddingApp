@@ -185,5 +185,13 @@
   }
     
 }
+
+@media screen and (max-width: 360px) {
+  .decriase-font-bingo {
+    font-size: 13px !important;
+  }
+    
+}
+  
   
   
