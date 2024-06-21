@@ -1,6 +1,17 @@
 # WeddingApp
 
-This template should help get you started developing with Vue 3 in Vite.
+# Wedding Invitation Vue 3 Single Page Application
+
+This is a single-page Vue 3 application for wedding invitations with the ability for users to submit forms to Firebase database.
+
+## Stack
+
+- Vue 3
+- Vuex
+- Vue Router
+- Vue Yandex Maps
+- Vuetify
+- Firebase
 
 ## Recommended IDE Setup
 
