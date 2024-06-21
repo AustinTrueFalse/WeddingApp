@@ -33,6 +33,8 @@ export default createStore({
         color: 'success',       
       },
       imageURL: null,
+    //Dashboard
+      userData: []
     },
     mutations: {
     // Form
@@ -77,9 +79,11 @@ export default createStore({
       hideSnackbar(state) {
         state.snackbar.show = false;
       },
+      setUserData(state, userData) {
+        state.userData = userData
+      }
     },
     actions: {
-    // Form
     async postInfo ({ commit, state }) {
      
         const isValid = 
@@ -223,6 +227,37 @@ export default createStore({
            commit('hideSnackbar')
         }, state.snackbar.timeout);  
       },
+    //DashBoard
+      async loadUserData ({ commit }) {
+        try {
+
+          const q = query(collection(db, 'UserData'))
+          const querySnap = await getDocs(q)
+          
+          const userData = [];
+          querySnap.forEach(doc => {
+            userData.push({
+              id: doc.id,
+              data: doc.data()
+            
+            });
+          });
+
+        
+
+          commit('setUserData', userData);
+          return
+          
+        } catch (error) {
+
+          commit('setSnackbar', {
+            message: 'Ошибка загрузки данных, попробуйте позже', 
+            color: 'error'
+          })
+          commit('setPostingInfo', false);
+          console.error('Ошибка загрузки данных:', error.message)
+        }  
+      }
       
     },
     getters: {
@@ -233,6 +268,7 @@ export default createStore({
         dialogForUpdateVisible: (state) => state.dialogForUpdateVisible,
         userQuery: (state) => state.userQuery,
         snackbar: (state) => state.snackbar,
+        userData: (state) => state.userData
         
     },
   });
